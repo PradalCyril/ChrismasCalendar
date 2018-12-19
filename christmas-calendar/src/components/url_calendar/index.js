@@ -1,22 +1,5 @@
 import React, { Component } from 'react';
-const connection = require('./conf');
 
-
-
-app.get('/calendar/id', (req, res) => {
-
-    // connection à la base de données, et sélection des employés
-    connection.query('SELECT * from calendar', (err, results) => {
-  
-      if (err) {
-  
-        res.status(500).send('Erreur lors de la récupération des infos');
-      } else {
-  
-        res.json(results);
-      }
-    });
-  });
 
 
 
