@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Prespage extends component{
+class Prespage extends Component{
     render(){
         return(
             <div>

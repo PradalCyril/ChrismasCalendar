@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
-import Confpage from './components/Confpage/index'
+import Confpage from './components/Confpage/index';
 
 class App extends Component {
   render() {
