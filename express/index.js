@@ -28,8 +28,8 @@ app.get('/calendar/id', (req, res) => {
 
 
 
-// Injecte la question
-app.post('/QA/question', (req, res) => {
+// Injecte la question / reponse
+app.post('/QA', (req, res) => {
 
     const formData = req.body;
   
@@ -38,24 +38,6 @@ app.post('/QA/question', (req, res) => {
       if (err) {
         console.log(err);
         res.status(500).send("Erreur lors de la sauvegarde de la question");
-      } else {
-        res.sendStatus(200);
-      }
-    });
-  });
-
-
-
-  // Injecte la réponse
-app.post('/QA/answer', (req, res) => {
-
-    const formData = req.body;
-  
-    connection.query('INSERT INTO calendar SET ?', formData, (err, results) => {
-
-      if (err) {
-        console.log(err);
-        res.status(500).send("Erreur lors de la sauvegarde de la réponse");
       } else {
         res.sendStatus(200);
       }
