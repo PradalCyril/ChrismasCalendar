@@ -6,9 +6,6 @@ class Confpage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-<<<<<<< HEAD
-            idCalendar : 0,
-=======
             valueButton:'Ok',
             idCalendar: 0,
             date: 1,
@@ -52,7 +49,7 @@ class Confpage extends Component {
         this.setState({ [type]: ev.target.value })
     }
     loadToTheState() {
-        if (this.state.questionCreate.length !== 0 && this.state.answerCreate.length !== 0 && this.state.date < 24) {
+        if (this.state.questionCreate.length !== 0 && this.state.answerCreate.length !== 0 && this.state.date < 3) {
             const newArray = this.state.listeQuestionAnswer.slice();
             newArray.push({ question: this.state.questionCreate, answer: this.state.answerCreate, calendar_id: this.state.idCalendar, day : this.state.date })
             this.setState({
@@ -61,7 +58,7 @@ class Confpage extends Component {
                 questionCreate: '',
                 listeQuestionAnswer: newArray
             })
-        } else if (this.state.date >= 24) {
+        } else if (this.state.date >= 3) {
             let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
             fetch('http://localhost:3000/api/calendar/', {
                 method: "POST",
@@ -81,7 +78,6 @@ class Confpage extends Component {
                 idCalendar: this.state.idCalendar + 1,
                 valueButton:'good, copy the share link below'
             })
->>>>>>> 4ccd8f244a4cf9a61737b5770b6133df9e6483d5
         }
     }
     render() {
