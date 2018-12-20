@@ -23,10 +23,15 @@
     max-height: 100%;
     width: 100%;
 }
-.boules .boule {
+#title{
+    position: fixed;
+    width:100%;
+}
+.boule {
     height: 100%;
     width: auto;
     padding-bottom: 30%;
+    cursor: pointer;
 }
 .boule24{
     padding-left: 20px;
@@ -35,5 +40,3 @@
 .boule1{
     padding-left: 40px;
 }
-
-
