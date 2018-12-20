@@ -11,12 +11,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-
 // Récupère l'id du calendrier
 app.get('/api/calendar/', (req, res) => {
 
   connection.query('SELECT * FROM calendar', (err, results) => {
-    console.log(err, ": :", results)
     if (err) {
       res.status(500).send('Erreur lors de la récupération de votre id');
     } else {
@@ -36,6 +34,20 @@ app.post('/api/calendar/', (req, res) => {
       res.status(500).send("Erreur lors de la sauvegarde du nouveau calendrier");
     } else {
       res.sendStatus(200);
+    }
+  });
+});
+
+app.get('/api/QA', (req, res) => {
+
+  
+  const userId = req.query.id
+
+  connection.query(`SELECT * FROM QA WHERE calendar_id = ${userId -1}`, (err, results) => {
+    if (err) {
+      res.status(500).send('Erreur lors de la récupération');
+    } else {
+      res.json(results);
     }
   });
 });

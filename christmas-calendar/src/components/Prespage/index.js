@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Link from '../url_calendar/index'
-import logo from '../../logo.svg';
+import logo from './logo.svg';
 
 
 class Prespage extends Component {
@@ -42,12 +42,19 @@ class Prespage extends Component {
         }
     }
     render() {
+        const question = this.state.qa.map((elem, index) => 
+             <li key={index} >{elem.question}</li>
+          )
         return (
             <div>
+            <ul>
+                    {question}
+                </ul>
                 <img src={logo} alt="logo" onClick={() => this.handleClick(2)}/>
                 <input onChange={(ev) => this.isTrue(ev)} />
             </div>
         )
+        
     }
 }
 

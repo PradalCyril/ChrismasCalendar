@@ -60,7 +60,9 @@ class Confpage extends Component {
                 questionCreate: '',
                 listeQuestionAnswer: newArray
             })
-        } else if (this.state.date >= 2) {
+
+        } else if (this.state.date >= 3) {
+
             let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
             fetch('http://localhost:3000/api/calendar/', {
                 method: "POST",
