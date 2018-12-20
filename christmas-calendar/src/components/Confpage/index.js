@@ -12,10 +12,15 @@ class Confpage extends Component {
 
         }
     }
+    componentWillMount(){
+        fetch('http://localhost:3000/api/calendar/')
+        .then(response=>response.json())
+        .then(data=>{console.log("coucou : ",data)})
+    }
     handleClick() {
         let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
         this.setState({ showTextInfo: css });
-        fetch('localhost:3000/calendar', {
+        fetch('http://localhost:3000/api/QA', {
             method: "POST",
             headers: {
               'Content-type': 'application/json'
@@ -23,7 +28,7 @@ class Confpage extends Component {
             body: JSON.stringify(this.state.listeQuestionAnswer)
           })
           .then(response=>response.json())
-          .then(data=>{console.log(data)})
+          .then(data=>{console.log("coucou",data)})
     }
     handleChange(ev, type) {
         this.setState({ [type]: ev.target.value })
@@ -40,12 +45,23 @@ class Confpage extends Component {
             })
         }
     }
+    createCalendar(){
+        fetch('http://localhost:3000/api/calendar', {
+            method: "POST",
+            headers: {
+              'Content-type': 'application/json'
+            },
+            body: JSON.stringify(1)
+          })
+          .then(response=>response.json())
+          .then(data=>{console.log("coucou",data)})
+    }
     render() {
 
 
         return (
             <div>
-                {console.log(this.state)}
+                <button onClick={(ev)=>this.createCalendar(ev)}>Create a New Calendar</button>
                 <ul className="parent_interact">
 
                     <li className="parent_interact_list">
