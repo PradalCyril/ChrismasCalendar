@@ -4,8 +4,8 @@ import Confpage from './components/Confpage/index';
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <Confpage/>
+      <div className='dd'>
+       <Confpage />
       </div>
     );
   }
