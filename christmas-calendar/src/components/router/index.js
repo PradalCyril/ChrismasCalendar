@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch, NavLink } from 'react-router-dom';
-import Confpage from './Confpage';
+import Confpage from '../Confpage/index';
+import Prespage from '../Prespage/index'
 
 class Routing extends Component {
   render() {
@@ -14,7 +15,7 @@ class Routing extends Component {
 
           <Switch>
             <Route exact path="/" component={Confpage} />
-            <Route path="/Prespage" component={Prespage} />
+            <Route path="/Prespage/:idCalendar" component={Prespage} />
           </Switch>
         </div>
       </BrowserRouter>
