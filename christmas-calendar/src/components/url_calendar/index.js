@@ -14,7 +14,7 @@ class Link extends Component {
                     <p>
                         Congratulation ! Your calendar has been successfully created !
                         Feel free to share it with your friends !
-                        Your link : http://localhost:3000/calendar/{this.props.match.params.idCalendar}
+                        Your link : <a href={`http://localhost:3000/calendar/${this.props.idCalendar}`}>{`http://localhost:3000/calendar/${this.props.idCalendar}`}</a>
                     </p>
             </div>
         )
