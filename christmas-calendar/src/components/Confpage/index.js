@@ -20,7 +20,7 @@ class Confpage extends Component {
     handleClick() {
         let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
         this.setState({ showTextInfo: css });
-        fetch('http://localhost:3000/api/QA', {
+        fetch('http://localhost:3000/api/question_answer', {
             method: "POST",
             headers: {
               'Content-type': 'application/json'
