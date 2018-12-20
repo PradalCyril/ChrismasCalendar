@@ -7,6 +7,7 @@ class Prespage extends Component {
     constructor(props) {
         super(props)
         this.state = {
+            displayQuestion: false,
             qa: [],
             objectOfTheDay: []
         }
@@ -17,7 +18,7 @@ class Prespage extends Component {
 
     componentDidUpdate() {
         console.log("QA :", this.state.qa)
-        console.log("object", this.state.objectOfTheDay)
+        console.log("object", this.state.objectOfTheDay.question)
     }
     componentWillMount() {
         fetch(`http://localhost:3000/api/QA?id=${this.props.match.params.idCalendar}`)
@@ -32,7 +33,9 @@ class Prespage extends Component {
     handleClick(number) {
         const objectOfTheDay = this.state.qa.filter(data => data.day == number)
         this.setState({
-            objectOfTheDay: objectOfTheDay
+            objectOfTheDay: objectOfTheDay,
+            displayQuestion: !this.state.displayQuestion
+            
         })
 
     }
@@ -42,14 +45,12 @@ class Prespage extends Component {
         }
     }
     render() {
-        const question = this.state.qa.map((elem, index) =>
-            <li key={index} >{elem.question}</li>
-        )
+        
         return (
             <div>
-                <ul>
-                    <li key={index} >{elem.question}</li>
-                </ul>
+                {this.state.displayQuestion &&
+                <div>{this.state.objectOfTheDay[0].question}
+                </div>}
                 <img src={logo} alt="logo" onClick={() => this.handleClick(2)} />
                 <input onChange={(ev) => this.isTrue(ev)} />
             </div>
