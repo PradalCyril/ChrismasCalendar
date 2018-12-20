@@ -41,6 +41,7 @@ app.post('/api/calendar/', (req, res) => {
 });
 
 // Injecte la question / reponse
+<<<<<<< HEAD
 app.post('/api/QA/', (req, res) => {
   const formData = req.body;
 
@@ -52,6 +53,21 @@ app.post('/api/QA/', (req, res) => {
     } else {
       res.sendStatus(200);
     }
+=======
+app.post('/api/question_answer/', (req, res) => {
+
+    const formData = req.body;
+  
+    connection.query('INSERT INTO QA SET ?', formData, (err, results) => {
+
+      if (err) {
+        console.log(err);
+        res.status(500).send("Erreur lors de la sauvegarde de la question");
+      } else {
+        results.sendStatus(200);
+      }
+    });
+>>>>>>> 09e76e1ccbeedca3d58d688623a08b1f6c6e72c6
   });
 });
 

@@ -14,7 +14,7 @@ class Link extends Component {
                     <p>
                         Congratulation ! Your calendar has been successfully created !
                         Feel free to share it with your friends !
-                        Your link : http://localhost:3000/calendar/id
+                        Your link : <span className = "link"> http://localhost:3000/calendar/{this.state.idCalendar} </span>
                     </p>
             </div>
         )
