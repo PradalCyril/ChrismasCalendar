@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import './index.css';
 
-import Boule1 from './bleuflocon.png';
+import Boule1 from './Sans titre-4.png';
 import Boule2 from './jaune.png';
-import Boule3 from './rougeflocon.png';
+import Boule3 from './Sans titre-1.png';
 import Boule4 from './vert.png';
 import Boule5 from './violetflocon.png';
+import Boule6 from './Sans titre-8.png'
 
 class ScrollHorizontal extends Component {
     render() {
@@ -36,7 +37,7 @@ class ScrollHorizontal extends Component {
                         <div className="boules boule21"><img className="boule" src={Boule1} alt="boule5"/></div>
                         <div className="boules boule22"><img className="boule" src={Boule2} alt="boule5"/></div>
                         <div className="boules boule23"><img className="boule" src={Boule3} alt="boule5"/></div>
-                        <div className="boules boule24"><img className="boule" src={Boule4} alt="boule5"/></div>
+                        <div className="boules boule24"><img className="boule" src={Boule6} alt="boule5"/></div>
                     </div>
                 </div>
             </div>
