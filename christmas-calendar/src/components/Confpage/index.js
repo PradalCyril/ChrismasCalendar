@@ -1,4 +1,6 @@
+
 import React, { Component } from 'react';
+import Link from '../url_calendar/index'
 
 class Confpage extends Component {
     constructor(props) {
@@ -91,7 +93,9 @@ class Confpage extends Component {
                         <input type="text" className="answer" onChange={(ev) => this.handleChange(ev, "answerCreate")} placeholder='answer' value={this.state.answerCreate} />
                         <button onClick={(ev) => this.loadToTheState(ev)}>{this.state.valueButton}</button>
                     </li>
+                 
                 </ul>
+                <Link  idCalendar={this.state.idCalendar} />
             </div>
         )
     }
