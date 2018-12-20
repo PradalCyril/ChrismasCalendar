@@ -1,6 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 
-class Confpage extends component{
+class Confpage extends Component{
     render(){
         return(
             <div>
