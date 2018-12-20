@@ -5,7 +5,7 @@ class Confpage extends React.Component{
     constructor(props){
         super(props);
         this.state = {
-            idCalendar : 14,
+            idCalendar : 0,
         }
     }
 
