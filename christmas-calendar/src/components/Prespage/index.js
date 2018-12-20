@@ -48,7 +48,7 @@ class Prespage extends Component {
         return (
             <div>
                 <ul>
-                    <li key={index} >{elem.question}</li>
+                   {question}
                 </ul>
                 <img src={logo} alt="logo" onClick={() => this.handleClick(2)} />
                 <input onChange={(ev) => this.isTrue(ev)} />

@@ -1,4 +1,4 @@
-
+import './index.css';
 import React, { Component } from 'react';
 import Link from '../url_calendar/index'
 
@@ -7,7 +7,7 @@ class Confpage extends Component {
         super(props);
         this.state = {
             complete: false,
-            valueButton: 'Ok',
+            valueButton: 'Next question',
             idCalendar: 0,
             date: 1,
             showTextInfo: 'hidden',
@@ -90,14 +90,22 @@ class Confpage extends Component {
 
         return (
             <div>
+
+                <p className = "welcome1">Welcome to your Christmas Calendar</p>
+                
+                <p className = "welcome2"> Day by day you’re gonna to create some problems for your child to allow him to have access to little games. If his answer is wrong he cannot play until the next day.
+He will discover new game everyday if he succeed challenges.</p>
+
+                <p className = "welcome3">After the creation of the calendar, we will give you a link to share it with your child.</p>
+
                 {!this.state.complete &&
                     <ul className="parent_interact">
 
                         <li className="parent_interact_list">
-                            <p>{this.state.date}</p>
-                            <input type="text" className="question" onChange={(ev) => this.handleChange(ev, "questionCreate")} placeholder='question' value={this.state.questionCreate} />
-                            <input type="text" className="answer" onChange={(ev) => this.handleChange(ev, "answerCreate")} placeholder='answer' value={this.state.answerCreate} />
-                            <button onClick={(ev) => this.loadToTheState(ev)}>{this.state.valueButton}</button>
+                            <p className = "pleaseFill">Please fill the form for the {this.state.date} december !</p>
+                            <p><input type="text" className="question" onChange={(ev) => this.handleChange(ev, "questionCreate")} placeholder='Example : 6 x 7' value={this.state.questionCreate} /></p>
+                            <p><input type="text" className="answer" onChange={(ev) => this.handleChange(ev, "answerCreate")} placeholder='42' value={this.state.answerCreate} /></p>
+                            <button className = "buttonOk" onClick={(ev) => this.loadToTheState(ev)}>{this.state.valueButton}</button>
                         </li>
 
                     </ul>}
