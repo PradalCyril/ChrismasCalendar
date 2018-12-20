@@ -11,12 +11,10 @@ app.use(bodyParser.urlencoded({
 }));
 
 
-
 // Récupère l'id du calendrier
 app.get('/api/calendar/', (req, res) => {
 
   connection.query('SELECT * FROM calendar', (err, results) => {
-    console.log(err, ": :", results)
     if (err) {
       res.status(500).send('Erreur lors de la récupération de votre id');
     } else {
@@ -40,8 +38,21 @@ app.post('/api/calendar/', (req, res) => {
   });
 });
 
+app.get('/api/QA', (req, res) => {
+
+  
+  const userId = req.query.id
+
+  connection.query(`SELECT * FROM QA WHERE calendar_id = ${userId -1}`, (err, results) => {
+    if (err) {
+      res.status(500).send('Erreur lors de la récupération');
+    } else {
+      res.json(results);
+    }
+  });
+});
+
 // Injecte la question / reponse
-<<<<<<< HEAD
 app.post('/api/QA/', (req, res) => {
   const formData = req.body;
 
@@ -53,21 +64,6 @@ app.post('/api/QA/', (req, res) => {
     } else {
       res.sendStatus(200);
     }
-=======
-app.post('/api/question_answer/', (req, res) => {
-
-    const formData = req.body;
-  
-    connection.query('INSERT INTO QA SET ?', formData, (err, results) => {
-
-      if (err) {
-        console.log(err);
-        res.status(500).send("Erreur lors de la sauvegarde de la question");
-      } else {
-        results.sendStatus(200);
-      }
-    });
->>>>>>> 09e76e1ccbeedca3d58d688623a08b1f6c6e72c6
   });
 });
 
