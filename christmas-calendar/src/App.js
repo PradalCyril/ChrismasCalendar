@@ -4,6 +4,7 @@ import { Route, BrowserRouter, Switch } from 'react-router-dom';
 import Confpage from './components/Confpage/index';
 import Prespage from './components/Prespage/index'
 
+
 class App extends Component {
   render() {
     return (

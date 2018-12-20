@@ -1,0 +1,7 @@
+.hidden{
+    transform: translate(-100px, -120px);
+}
+
+.show{
+    transform: translate(10px, 10px);
+}
