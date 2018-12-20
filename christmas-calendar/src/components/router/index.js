@@ -1,23 +1,20 @@
 import React, { Component } from 'react';
 import { Route, BrowserRouter, Switch, NavLink } from 'react-router-dom';
-import Home from './Accueil';
+import Confpage from './Confpage';
 
 class Routing extends Component {
   render() {
     return (
-      <div>
-
-      </div>
       <BrowserRouter>
         <div>
           <header>
-            <NavLink exact to="/"> Accueil </NavLink>
-            <NavLink to="/AgentHomePage"> Agent Home Page </NavLink>
+            <NavLink exact to="/"> Config Page</NavLink>
+            <NavLink to="/Prespage"> Calendar Page </NavLink>
           </header>
 
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/AgentHomePage" component={AgentHomePage} />
+            <Route exact path="/" component={Confpage} />
+            <Route path="/Prespage" component={Prespage} />
           </Switch>
         </div>
       </BrowserRouter>
