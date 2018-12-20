@@ -6,7 +6,8 @@ class Confpage extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            valueButton:'Ok',
+            complete: false,
+            valueButton: 'Ok',
             idCalendar: 0,
             date: 1,
             showTextInfo: 'hidden',
@@ -51,14 +52,17 @@ class Confpage extends Component {
     loadToTheState() {
         if (this.state.questionCreate.length !== 0 && this.state.answerCreate.length !== 0 && this.state.date < 3) {
             const newArray = this.state.listeQuestionAnswer.slice();
-            newArray.push({ question: this.state.questionCreate, answer: this.state.answerCreate, calendar_id: this.state.idCalendar, day : this.state.date })
+            newArray.push({ question: this.state.questionCreate, answer: this.state.answerCreate, calendar_id: this.state.idCalendar, day: this.state.date })
             this.setState({
+                complete: false,
                 date: this.state.date + 1,
                 answerCreate: '',
                 questionCreate: '',
                 listeQuestionAnswer: newArray
             })
+
         } else if (this.state.date >= 3) {
+
             let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
             fetch('http://localhost:3000/api/calendar/', {
                 method: "POST",
@@ -70,13 +74,14 @@ class Confpage extends Component {
                 .then(this.addQA()
                 )
             this.setState({
+                complete: !this.state.complete,
                 showTextInfo: css,
                 date: 1,
                 answerCreate: '',
                 questionCreate: '',
                 listeQuestionAnswer: [],
                 idCalendar: this.state.idCalendar + 1,
-                valueButton:'good, copy the share link below'
+                valueButton: 'good, copy the share link below'
             })
         }
     }
@@ -85,17 +90,19 @@ class Confpage extends Component {
 
         return (
             <div>
-                <ul className="parent_interact">
+                {!this.state.complete &&
+                    <ul className="parent_interact">
 
-                    <li className="parent_interact_list">
-                        <p>{this.state.date}</p>
-                        <input type="text" className="question" onChange={(ev) => this.handleChange(ev, "questionCreate")} placeholder='question' value={this.state.questionCreate} />
-                        <input type="text" className="answer" onChange={(ev) => this.handleChange(ev, "answerCreate")} placeholder='answer' value={this.state.answerCreate} />
-                        <button onClick={(ev) => this.loadToTheState(ev)}>{this.state.valueButton}</button>
-                    </li>
-                 
-                </ul>
-                <Link  idCalendar={this.state.idCalendar} />
+                        <li className="parent_interact_list">
+                            <p>{this.state.date}</p>
+                            <input type="text" className="question" onChange={(ev) => this.handleChange(ev, "questionCreate")} placeholder='question' value={this.state.questionCreate} />
+                            <input type="text" className="answer" onChange={(ev) => this.handleChange(ev, "answerCreate")} placeholder='answer' value={this.state.answerCreate} />
+                            <button onClick={(ev) => this.loadToTheState(ev)}>{this.state.valueButton}</button>
+                        </li>
+
+                    </ul>}
+                {this.state.complete &&
+                    <Link idCalendar={this.state.idCalendar} />}
             </div>
         )
     }
