@@ -32,7 +32,7 @@ app.post('/api/question_answer/', (req, res) => {
 
     const formData = req.body;
   
-    connection.query('INSERT INTO question_answer SET ?', formData, (err, results) => {
+    connection.query('INSERT INTO QA SET ?', formData, (err, results) => {
 
       if (err) {
         console.log(err);
