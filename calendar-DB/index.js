@@ -15,42 +15,54 @@ app.use(bodyParser.urlencoded({
 // Récupère l'id du calendrier
 app.get('/api/calendar/', (req, res) => {
 
-    connection.query('SELECT * FROM calendar', (err, results) => {
-      console.log(err,": :",results)
-      if (err) {
-        res.status(500).send('Erreur lors de la récupération de votre id');
-      } else {
-        res.json(results);
-      }
-    });
+  connection.query('SELECT * FROM calendar', (err, results) => {
+    console.log(err, ": :", results)
+    if (err) {
+      res.status(500).send('Erreur lors de la récupération de votre id');
+    } else {
+      res.json(results);
+    }
   });
+});
 
+app.post('/api/calendar/', (req, res) => {
 
+  const formData = req.body;
+
+  connection.query('INSERT INTO calendar SET ?', formData, (err, results) => {
+
+    if (err) {  //we make sure theres an error (error obj)
+      console.log(err);
+      res.status(500).send("Erreur lors de la sauvegarde du nouveau calendrier");
+    } else {
+      res.sendStatus(200);
+    }
+  });
+});
 
 // Injecte la question / reponse
-app.post('/api/question_answer/', (req, res) => {
+app.post('/api/QA/', (req, res) => {
+  const formData = req.body;
 
-    const formData = req.body;
-  
-    connection.query('INSERT INTO question_answer SET ?', formData, (err, results) => {
+  connection.query('INSERT INTO QA SET ?', formData, (err, results) => {
 
-      if (err) {
-        console.log(err);
-        res.status(500).send("Erreur lors de la sauvegarde de la question");
-      } else {
-        results.sendStatus(200);
-      }
-    });
-  });
-
-
-
-
-
-  app.listen(port, (err) => {
-    if (err){
-    throw new Error('Something bad happened...');
+    if (err) {
+      console.log(err);
+      res.status(500).send("Erreur lors de la sauvegarde de la question");
+    } else {
+      res.sendStatus(200);
     }
-    
-    console.log(`Server is listening on ${port}`);
-    });
+  });
+});
+
+
+
+
+
+app.listen(port, (err) => {
+  if (err) {
+    throw new Error('Something bad happened...');
+  }
+
+  console.log(`Server is listening on ${port}`);
+});
