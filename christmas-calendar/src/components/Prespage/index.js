@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import Link from '../url_calendar/index'
 import logo from './logo.svg';
 
@@ -7,7 +7,7 @@ class Prespage extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            qa:[],
+            qa: [],
             objectOfTheDay: []
         }
     }
@@ -42,19 +42,19 @@ class Prespage extends Component {
         }
     }
     render() {
-        const question = this.state.qa.map((elem, index) => 
-             <li key={index} >{elem.question}</li>
-          )
+        const question = this.state.qa.map((elem, index) =>
+            <li key={index} >{elem.question}</li>
+        )
         return (
             <div>
-            <ul>
-                    {question}
+                <ul>
+                    <li key={index} >{elem.question}</li>
                 </ul>
-                <img src={logo} alt="logo" onClick={() => this.handleClick(2)}/>
+                <img src={logo} alt="logo" onClick={() => this.handleClick(2)} />
                 <input onChange={(ev) => this.isTrue(ev)} />
             </div>
         )
-        
+
     }
 }
 
