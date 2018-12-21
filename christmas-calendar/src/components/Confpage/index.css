@@ -9,13 +9,23 @@
 .pleaseFill {
     margin: auto;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 2.2em;
     font-family: 'Charm', cursive;
     padding: 10px;
+    color: white;
+    margin-bottom: 50px;
+}
+
+.day {
+    color: red;
+    border: 2px dotted;
+    border-radius: 500px;
+    font-weight: bold;
 }
 
 .parent_interact_list {
     list-style-type: none;
+    padding-bottom: 15px;
 }
 
 .parent_interact {
@@ -32,6 +42,7 @@
     text-align: center;
     font-size: 2.5em;
     font-family: 'Charm', cursive;
+    color: white;
 }
 
 .welcome2 {
@@ -42,6 +53,7 @@
     font-size: 1.8em;
     font-family: 'Cairo', sans-serif;
     line-height: 1.3;
+    color: white;
 }
 
 .welcome3 {
@@ -52,8 +64,65 @@
     font-size: 1.8em;
     font-family: 'Cairo', sans-serif;
     line-height: 1.3;
+    color: white;
 }
 
 .buttonOk {
-    height: 35px;
+    height: 65px;
+    width: 200px;
+    background: transparent;
+    font-size: 1.4em;
+    color: aliceblue;
 }
+
+body {
+    background-image: url("child_christmas2.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center; 
+  
+    width: 100%;
+    height: auto;
+    background-color: black;
+}
+
+.input_question {
+    border: 3px solid #003E21;
+    border-radius: 40px;
+    height: 40px;
+    width: 300px;
+    background: transparent;
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.1em;
+}
+
+.input_answer {
+    border: 3px solid #003E21;
+    border-radius: 40px;
+    height: 40px;
+    width: 300px;
+    background: transparent;
+    color: aliceblue;
+    text-align: center;
+    font-size: 1.1em;
+    margin-bottom: 25px;
+}
+
+input::placeholder{
+    color: grey;
+    text-align: center;
+    font-size: 1.2em;
+    font-weight: bold;
+
+}
+
+.question_title {
+    color: white;
+}
+
+.answer_title {
+    color: white;
+    margin-top: 50px;
+}
+
