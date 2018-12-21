@@ -41,6 +41,9 @@ class Prespage extends Component {
     }
     isTrue(ev) {
         if (ev.target.value == this.state.objectOfTheDay[0].answer) {
+            this.setState({
+                classe: "on"
+            })
             console.log('yes')
         }
     }
@@ -48,11 +51,26 @@ class Prespage extends Component {
         
         return (
             <div>
+                <div className="body">
+                <img onClick={() => this.handleClick()} src={ButtonPlay} className="button-send" alt="Button Send" />
+                {this.state.isVisible ? (
+                    <div className="game-backg">
+                        <div className="game-container">
+                            <img onClick={() => this.handleClick()} src={ButtonClose} className="button-close" alt="Button Close" />
+                            <iframe width="560" height="315" src={`https://www.silvergames.com/fr/${this.props.video}connect-4/iframe`} frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="allowfullscreen" ></iframe>
+                        </div>
+                    </div>
+                ) : null}
+            </div>
+        );
+    }
+                <div className={this.state.classe}></div>
                 {this.state.displayQuestion &&
                 <div>{this.state.objectOfTheDay[0].question}
                 </div>}
                 <img src={logo} alt="logo" onClick={() => this.handleClick(2)} />
                 <input onChange={(ev) => this.isTrue(ev)} />
+                <input onClick={(ev) =>this.isTrue(ev)}/>
             </div>
         )
 
