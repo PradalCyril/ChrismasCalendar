@@ -26,6 +26,7 @@
 #title{
     position: fixed;
     width:100%;
+    top: -38px;
 }
 .boule {
     height: 100%;

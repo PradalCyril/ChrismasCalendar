@@ -43,9 +43,6 @@ class Confpage extends Component {
                 }
             })
     }
-
-    handleClick() {
-    }
     handleChange(ev, type) {
         this.setState({ [type]: ev.target.value })
     }

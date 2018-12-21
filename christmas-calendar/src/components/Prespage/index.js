@@ -35,13 +35,12 @@ class Prespage extends Component {
         this.state = {
             displayQuestion: false,
             qa: [],
-            objectOfTheDay: [],
+            objectOfTheDay: []
         }
     }
     componentDidMount() {
         console.log("ID Calendrier : ", this.props.match.params.idCalendar)
     }
-
     componentDidUpdate() {
         console.log("QA :", this.state.qa)
         console.log("object", this.state.objectOfTheDay.question)
@@ -64,14 +63,21 @@ class Prespage extends Component {
             displayQuestion: !this.state.displayQuestion
 
         })
-
     }
     isTrue(ev) {
         if (ev.target.value === this.state.objectOfTheDay[0].answer) {
             console.log('yes')
         }
     }
-
+/*
+   handleSubmit(event) {
+        if(this.isTrue(ev) === qa.a){
+            ouvrir le Iframe
+        }else{
+            envoyer un smiley triste
+        }
+    }
+*/
     render() {
 
         return (
