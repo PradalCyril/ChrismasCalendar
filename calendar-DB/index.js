@@ -15,6 +15,7 @@ app.use(bodyParser.urlencoded({
 app.get('/api/calendar/', (req, res) => {
 
   connection.query('SELECT * FROM calendar', (err, results) => {
+    console.log(err, 'ici')
     if (err) {
       res.status(500).send('Erreur lors de la récupération de votre id');
     } else {

@@ -5,10 +5,11 @@ import Confpage from './components/Confpage/index';
 import Prespage from './components/Prespage/index'
 
 
+
+
 class App extends Component {
   render() {
     return (
-      <div>
            <BrowserRouter>
         <div>
           <Switch>
@@ -17,9 +18,10 @@ class App extends Component {
           </Switch>
         </div>
       </BrowserRouter>
-      </div>
+
     );
   }
 }
 
 export default App;
+

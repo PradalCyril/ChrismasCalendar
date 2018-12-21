@@ -50,7 +50,7 @@ class Confpage extends Component {
         this.setState({ [type]: ev.target.value })
     }
     loadToTheState() {
-        if (this.state.questionCreate.length !== 0 && this.state.answerCreate.length !== 0 && this.state.date < 3) {
+        if (this.state.questionCreate.length !== 0 && this.state.answerCreate.length !== 0 && this.state.date < 4) {
             const newArray = this.state.listeQuestionAnswer.slice();
             newArray.push({ question: this.state.questionCreate, answer: this.state.answerCreate, calendar_id: this.state.idCalendar, day: this.state.date })
             this.setState({
@@ -61,7 +61,7 @@ class Confpage extends Component {
                 listeQuestionAnswer: newArray
             })
 
-        } else if (this.state.date >= 3) {
+        } else if (this.state.date >= 4) {
 
             let css = (this.state.showTextInfo === 'hidden') ? 'show' : 'hidden';
             fetch('http://localhost:3000/api/calendar/', {
