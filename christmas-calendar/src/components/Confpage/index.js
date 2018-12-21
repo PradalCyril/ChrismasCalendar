@@ -93,8 +93,8 @@ class Confpage extends Component {
 
                 <p className = "welcome1">Welcome to your Christmas Calendar</p>
                 
-                <p className = "welcome2"> Day by day you’re gonna to create some problems for your child to allow him to have access to little games. If his answer is wrong he cannot play until the next day.
-He will discover new game everyday if he succeed challenges.</p>
+                <p className = "welcome2"> Day by day you’re gonna to suggest puzzles, calculations or questions for your child to allow him to have access to little games. If his answer is wrong he cannot play until the next day.</p>
+                <p className = "welcome3">He will discover a new little game everyday if he succeed challenges.</p>
 
                 <p className = "welcome3">After the creation of the calendar, we will give you a link to share it with your child.</p>
 
