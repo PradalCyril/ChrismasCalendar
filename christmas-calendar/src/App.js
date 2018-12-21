@@ -11,7 +11,7 @@ class App extends Component {
   render() {
     return (
            <BrowserRouter>
-        <div>
+        <div className="page-container">
           <Switch>
             <Route exact path="/" component={Confpage} />
             <Route path="/Prespage/:idCalendar" component={Prespage} />

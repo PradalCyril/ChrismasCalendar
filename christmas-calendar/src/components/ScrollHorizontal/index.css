@@ -12,11 +12,11 @@
     overflow: scroll;
 }
 #container2{
-    width: 400%;
+    width: 500%;
     height: 100%;
     display: flex;
     flex-wrap: nowrap;
-    overflow-x: scroll;
+
 }
 #images{
     position: relative;

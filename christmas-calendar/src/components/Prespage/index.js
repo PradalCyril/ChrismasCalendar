@@ -35,15 +35,19 @@ class Prespage extends Component {
         this.state = {
             displayQuestion: false,
             qa: [],
-            objectOfTheDay: []
+            objectOfTheDay: [],
+            games: [],
         }
     }
+
+    
     componentDidMount() {
         console.log("ID Calendrier : ", this.props.match.params.idCalendar)
     }
     componentDidUpdate() {
         console.log("QA :", this.state.qa)
         console.log("object", this.state.objectOfTheDay.question)
+        console.log("game : ", this.state.games)
     }
     componentWillMount() {
         fetch(`http://localhost:3000/api/QA?id=${this.props.match.params.idCalendar}`)
@@ -56,40 +60,52 @@ class Prespage extends Component {
             )
     }
     handleClick(number) {
-        console.log(number)
+        console.log("ici", number)
+        let addgames = ['http://slither.io/', 'https://www.silvergames.com/fr/connect-4/iframe','http://www.silvergames.com/en/agario/iframe','https://www.silvergames.com/fr/happy-glass/iframe']
         const objectOfTheDay = this.state.qa.filter(data => data.day == number)
         this.setState({
             objectOfTheDay: objectOfTheDay,
-            displayQuestion: !this.state.displayQuestion
+            displayQuestion: !this.state.displayQuestion,
+            games: addgames[Math.floor(Math.random() * addgames.length)],
 
         })
     }
-    isTrue(ev) {
-        if (ev.target.value === this.state.objectOfTheDay[0].answer) {
-            console.log('yes')
+    isTrue() {
+        if (this.answer.value === this.state.objectOfTheDay[0].answer) {
+            console.log('yes');
+            window.open(`${this.state.games}`)
+
+        } else {
+            window.open('https://media.giphy.com/media/EriPNV1whwKac/giphy.gif', 'sharer', 'toolbar=0,status=0,width=300,height=300')
+
         }
     }
-/*
-   handleSubmit(event) {
-        if(this.isTrue(ev) === qa.a){
-            ouvrir le Iframe
-        }else{
-            envoyer un smiley triste
-        }
-    }
-*/
+
     render() {
+
+        
 
         return (
             <React.Fragment>
-                <div className="question-fild">
-                    <div className="question-fild-box">
-                        {this.state.displayQuestion &&
+
+                {this.state.displayQuestion &&
+                    <div className="question-fild">
+
+                        <div className="question-fild-box">
+
                             <div>
                                 {this.state.objectOfTheDay[0].question}
-                            </div>}
+                            </div>
+                        </div>
+                        <div className="answer-fild-box">
+                            <div className="answer-is">The answer is :</div>
+                            <input className="input-Prespage" ref={ (el) => this.answer = el} />
+                            <button className = "btn-click" onClick={() => this.isTrue()}>Check result !</button>
+                        </div>
                     </div>
-                </div>
+
+                }
+
                 <div id="container">
                     <div id="container1">
                         <div id="title"><img className="title-1" src={Title} alt="title" /></div>
@@ -121,10 +137,6 @@ class Prespage extends Component {
                         </div>
                     </div>
                 </div>
-                <div className="answer-fild-box">
-                    <input onChange={(ev) => this.isTrue(ev)} />
-                </div>
-                <button className="btn-send">send</button>
             </React.Fragment>
         )
 
