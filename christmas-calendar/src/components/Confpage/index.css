@@ -1,0 +1,59 @@
+.hidden{
+    transform: translate(-100px, -120px);
+}
+
+.show{
+    transform: translate(10px, 10px);
+}
+
+.pleaseFill {
+    margin: auto;
+    text-align: center;
+    font-size: 1.5em;
+    font-family: 'Charm', cursive;
+    padding: 10px;
+}
+
+.parent_interact_list {
+    list-style-type: none;
+}
+
+.parent_interact {
+    margin: auto;
+    text-align: center;
+    margin-top: 60px;
+}
+
+
+
+.welcome1 {
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 2.5em;
+    font-family: 'Charm', cursive;
+}
+
+.welcome2 {
+    width: 50%;
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.3;
+}
+
+.welcome3 {
+    
+    padding: 15px;
+    margin: auto;
+    text-align: center;
+    font-size: 1.8em;
+    font-family: 'Cairo', sans-serif;
+    line-height: 1.3;
+}
+
+.buttonOk {
+    height: 35px;
+}
